@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link data-require="bootstrap@4.0.5" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script data-require="jquery@3.2.1" data-semver="3.2.1" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script data-require="handlebars@4.0.5" data-semver="4.0.5" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script data-require="bootstrap@4.0.5" data-semver="4.0.5" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8" id="availableResults"></div>
+      <div class="col-md-4" id="cartResults"></div>
+    </div>
+  </div>
+
+
+  <script id="availableItems" type="text/x-handlebars-template">
+
+    <div class="row text-center tiles">
+      <h3 class="headermessage">Products</h3>
+    </div>
+    <div class="row">
+
+      {{#each items}}
+      <div class=" col-md-4">
+        <div class="tiles">
+          <div>
+            <h4>{{productName}}</h4>
+            <img class="tileImage" src="{{productImage}}">
+            <p> ${{price}}</p>
+            <button class="btn btn-success" onclick="action({{json this}}, 'add')">Add to cart</button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+
+  </script>
+  <script id="cartItems" type="text/x-handlebars-template">
+    <div class="row text-center tiles">
+      <h3 class="headermessage">Shopping cart</h3>
+    </div>
+
+    {{#each items}}
+    <div class="row tiles">
+      <div class=" col-md-8"> {{productName}} </div>
+      <div class=" col-md-4">
+        <button class="btn btn-danger" onclick="action({{json this}}, 'remove')">Remove</button>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+</body>
+
+</html>

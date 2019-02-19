@@ -1,0 +1,21 @@
+.headermessage {
+  margin: 19px;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.tiles {
+    border: 1px solid lightgrey;
+    padding: 10px 0 10px 0;
+    margin: 5px 15px 5px 0;
+    text-align: center;
+    vertical-align: bottom;
+    border-radius: 10px;
+}
+
+.tiles .tileImage{
+  width:100px;
+}
+
